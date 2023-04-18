@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Nix</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/blood.css" id="theme">
+  <link rel="stylesheet" href="pandoc.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Nix</h1>
+  <p class="subtitle">A unique developer environment</p>
+  <p class="date">May 2023</p>
+</section>
+
+<section id="section"
+class="title-slide slide level1 with-background-image"
+data-background-image="assets/why-not.jpeg">
+<h1 class="with-background-image"
+data-background-image="assets/why-not.jpeg"></h1>
+
+</section>
+
+<section>
+<section id="challenges"
+class="title-slide slide level1 with-background-image"
+data-background-image="assets/challenge.jpeg">
+<h1 class="with-background-image"
+data-background-image="assets/challenge.jpeg">Challenges</h1>
+
+</section>
+<section id="inconsistencies" class="title-slide slide level2">
+<h2>Inconsistencies</h2>
+<div>
+<ul>
+<li class="fragment">In developers’ setups (OS, versions, tools,
+dependencies…)</li>
+<li class="fragment">Across environments (local vs remote
+environments)</li>
+</ul>
+</div>
+</section>
+
+<section id="onboarding" class="title-slide slide level2">
+<h2>Onboarding</h2>
+<div>
+<ul>
+<li class="fragment">Slow</li>
+<li class="fragment">Prone to human error or knowledge</li>
+</ul>
+</div>
+</section>
+
+<section id="dependencies-and-requirements"
+class="title-slide slide level2">
+<h2>Dependencies and requirements</h2>
+<div>
+<ul>
+<li class="fragment">application requirements need to be
+documented…</li>
+<li class="fragment">and up-to-date at all time!</li>
+</ul>
+</div>
+</section>
+
+<section id="context-switching" class="title-slide slide level2">
+<h2>Context switching</h2>
+<p>Switching contexts / projects (languages, tools, versions, …) is not
+trivial</p>
+</section>
+</section>
+<section>
+<section id="nix-gives-you-powers"
+class="title-slide slide level1 with-background-image"
+data-background-image="assets/superpower.jpeg">
+<h1 class="with-background-image"
+data-background-image="assets/superpower.jpeg"><code>nix</code> gives
+you powers!</h1>
+
+</section>
+<section id="declarative" class="title-slide slide level2">
+<h2>declarative</h2>
+<blockquote>
+<p>easy to initialize and maintain through versioning</p>
+</blockquote>
+</section>
+
+<section id="blazing-fast" class="title-slide slide level2">
+<h2>blazing fast</h2>
+<blockquote>
+<p>using caching for dependencies</p>
+</blockquote>
+</section>
+
+<section id="reproducible" class="title-slide slide level2">
+<h2>reproducible</h2>
+<blockquote>
+<p>as its summons an isolated environment</p>
+</blockquote>
+</section>
+
+<section id="reliable" class="title-slide slide level2">
+<h2>reliable</h2>
+<blockquote>
+<p>no breakages between packages</p>
+</blockquote>
+<blockquote>
+<p>easy rollback</p>
+</blockquote>
+<blockquote>
+<p>consistent states throughout upgrading</p>
+</blockquote>
+</section>
+
+<section id="suited-for-experiments" class="title-slide slide level2">
+<h2>suited for experiments</h2>
+<blockquote>
+<p>no permanent installs</p>
+</blockquote>
+</section>
+</section>
+<section>
+<section id="demo"
+class="title-slide slide level1 with-background-image"
+data-background-image="assets/demo.jpeg">
+<h1 class="with-background-image"
+data-background-image="assets/demo.jpeg">Demo</h1>
+<p>Onboarding &amp; switching context [no-brain-mode]</p>
+</section>
+<section id="from-nix-to-devenv" class="title-slide slide level2">
+<h2>From <code>nix</code> to <code>devenv</code></h2>
+<pre><code>nix + cachix + direnv = devenv</code></pre>
+<blockquote>
+<p>A dedicated and easy-to-use wrapper of <code>nix-shell</code></p>
+</blockquote>
+</section>
+</section>
+<section id="next-steps-opportunities"
+class="title-slide slide level1 with-background-image"
+data-background-image="assets/opportunities.jpeg">
+<h1 class="with-background-image"
+data-background-image="assets/opportunities.jpeg">Next steps &amp;
+opportunities</h1>
+<div>
+<ul>
+<li class="fragment">Build Docker images through Nix</li>
+<li class="fragment">Use Nix in the CI (as a build system)</li>
+</ul>
+</div>
+</section>
+
+<section id="resources" class="title-slide slide level1">
+<h1>Resources</h1>
+<ul>
+<li>https://nixos.org/guides/nix-pills/</li>
+<li>https://nix.dev/</li>
+<li>https://nixos.org/</li>
+<li>https://search.nixos.org/packages</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
